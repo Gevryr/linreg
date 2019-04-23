@@ -37,7 +37,7 @@ print("y.shape:", y.shape)
 
 # 3D plotting
 fig = plt.figure()
-ax = fig.add_subplot(111, projection=’3d’) # the projection arg is important!
+ax = fig.add_subplot(111, projection='3d') # the projection arg is important!
 ax.scatter(X[:, 0], X[:, 1], y, color="red")
 ax.set_title("raw data")
 plt.draw()
@@ -48,7 +48,8 @@ X = prepend_one(X)
 print("X.shape:", X.shape)
 
 # Fit model/compute optimal parameters beta
-beta_ = mdot([inv(dot(X.T, X)), X.T, y])print("Optimal beta:", beta_)
+beta_ = mdot([inv(dot(X.T, X)), X.T, y])
+print("Optimal beta:", beta_)
 # prep for prediction
 X_grid = prepend_one(grid2d(-3, 3, num=30))
 print("X_grid.shape:", X_grid.shape)
@@ -58,7 +59,7 @@ print("Y_grid.shape", y_grid.shape)
 
 # vis the result
 fig = plt.figure()
-ax = fig.add_subplot(111, projection=’3d’) # the projection part is important
+ax = fig.add_subplot(111, projection='3d') # the projection part is important
 ax.scatter(X_grid[:, 1], X_grid[:, 2], y_grid) # dont use the 1 infront
 ax.scatter(X[:, 1], X[:, 2], y, color="red") # also show the real data
 ax.set_title("predicted data")
