@@ -39,16 +39,7 @@ def grid2d(start, end, num=50):
     return np.column_stack([X0.flatten(), X1.flatten()])
 # a)
 def squared_error(X, beta, y):
-    #return dot(dot(X, beta)-y).T, dot((X, beta) -y)
     return dot((dot(X, beta)-y).T, dot(X, beta)-y)
-
-"""# b)
-def quadratic_features(matrix):
-    dimensions = matrix.shape[0]
-    print("Computing quadratic features for matrix with ", dimensions, "dimensions")
-    d = matrix.shape[1]
-    new_d = int(d + ((d* (d+1)) /2))"""
-    
     
 ###############################################################################
 # get regularization_parameter
@@ -95,8 +86,6 @@ beta_ = mdot([inv(dot(X.T, X) + reg_par * identity), X.T, y])
 # Squared Error
 l = squared_error(X, beta_, y)
 print("squared error: ", l) 
-
-#print(identity)
 
 print("Optimal beta:", beta_)
 # prep for prediction
